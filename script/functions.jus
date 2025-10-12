@@ -1,0 +1,18 @@
+module Functions where
+    -- Simple function without parameters
+    def getZero: Nat := 0
+
+    -- Function with single parameter
+    def increment(x: Nat): Nat := x
+
+    -- Function with multiple parameters
+    def add(a: Nat, b: Nat): Nat := a
+
+    -- Function returning boolean
+    def isPositive(n: Nat): Bool := true
+
+    -- Function composition
+    def compose(x: Nat): Nat := increment(increment(x))
+
+    -- Calling isPositive function with a number
+    isPositive(42)

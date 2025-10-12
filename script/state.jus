@@ -1,0 +1,22 @@
+contract StateTest where
+    -- Define possible states
+    inductive State where
+        | Created: State
+        | Active: State
+        | Paused: State
+        | Finished: State
+
+    -- Define state transitions using actual state names
+    def transition(Created: State)(activate: Event): State := Active
+
+    def transition(Active: State)(pause: Event): State := 
+        if (true) then
+            Paused
+        else
+            Active
+
+    def transition(Paused: State)(resume: Event): State := Active
+    
+    def transition(Active: State)(finish: Event): State := Finished
+
+    def transition(Finished: State)(reset: Event): State := Created

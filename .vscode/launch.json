@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "functions",
+            "request": "launch",
+            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
+            "mainClass": "org.jus.interpreter.Main",
+            "args": ["${workspaceFolder}\\script\\functions.jus"],
+            "preLaunchTask": "mvn-package"
+        },
+        {
+            "type": "java",
+            "name": "state",
+            "request": "launch",
+            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
+            "mainClass": "org.jus.interpreter.Main",
+            "args": ["${workspaceFolder}\\script\\state.jus"],
+            "preLaunchTask": "mvn-package"
+        },
+        {
+            "type": "java",
+            "name": "structs",
+            "request": "launch",
+            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
+            "mainClass": "org.jus.interpreter.Main",
+            "args": ["${workspaceFolder}\\script\\structs.jus"],
+            "preLaunchTask": "mvn-package"
+        },
+        {
+            "type": "java",
+            "name": "types",
+            "request": "launch",
+            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
+            "mainClass": "org.jus.interpreter.Main",
+            "args": ["${workspaceFolder}\\script\\types.jus"],
+            "preLaunchTask": "mvn-package"
+        }
+    ]
+}
