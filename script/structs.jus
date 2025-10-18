@@ -1,0 +1,20 @@
+module Structs where
+    -- Define a simple struct
+    structure Point where
+        x: Nat
+        y: Nat
+
+    -- More complex struct with different types
+    structure Person where
+        name: String
+        age: Nat
+        isActive: Bool
+        balance: Nat
+        address: Address
+
+    -- Nested struct
+    structure Transaction where
+        sender: Address
+        receiver: Address
+        amount: Nat
+        timestamp: Nat

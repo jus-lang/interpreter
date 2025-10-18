@@ -1,0 +1,19 @@
+-- Testing type definitions and expressions
+module Types where
+    -- Basic types
+    type NatType = Nat
+    type StringType = String
+    type BoolType = Bool
+    type AddressType = Address
+
+    -- Function types
+    type UnaryFunction = Nat -> Nat
+    type BinaryFunction = Nat -> Nat -> Nat
+    
+    -- Product types
+    type Pair = Nat * Nat
+    type Triple = Nat * String * Bool
+
+    -- Map types
+    type BalanceMap = Map Address Nat
+    type StateMap = Map String Bool
