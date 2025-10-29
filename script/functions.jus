@@ -1,7 +1,6 @@
 module Functions where
     -- Simple function without parameters
     def getZero: Nat := 0
-
     -- Function with single parameter
     def increment(x: Nat): Nat := x
 

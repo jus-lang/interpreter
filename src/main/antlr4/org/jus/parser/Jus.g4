@@ -10,6 +10,7 @@ contract_definition: 'contract' IDENTIFIER 'where' definition*;
 definition: type_definition
           | function_definition
           | state_definition
+          | event_definition
           | transition_definition
           | struct_definition
           ;
@@ -26,6 +27,8 @@ type_expression
     | 'String'
     | 'Address'
     | 'Bool'
+    | 'State'
+    | 'Event'
     ;
 
 // Function Definitions
@@ -40,6 +43,11 @@ state_definition: 'inductive' 'State' 'where' state_constructor*;
 
 state_constructor: '|' IDENTIFIER ':' 'State';
 
+// Event Definitions
+event_definition: 'inductive' 'Event' 'where' event_constructor*;
+
+event_constructor: '|' IDENTIFIER ':' 'Event';
+
 // Transition Definitions
 transition_definition: 'def' 'transition' '(' IDENTIFIER ':' 'State' ')' '(' IDENTIFIER ':' 'Event' ')' ':' 'State' ':=' expression;
 
@@ -49,21 +57,42 @@ struct_definition: 'structure' IDENTIFIER 'where' struct_field*;
 struct_field: IDENTIFIER ':' type_expression;
 
 // Expressions
-expression: IDENTIFIER
-          | literal
-          | function_call
-          | match_expression
-          | if_expression
-          ;
+expression: comparison_expression;
+
+comparison_expression
+    : member_access_expression
+    | comparison_expression GT comparison_expression
+    | comparison_expression LT comparison_expression
+    | comparison_expression GTE comparison_expression
+    | comparison_expression LTE comparison_expression
+    | comparison_expression EQ_OP comparison_expression
+    | comparison_expression NEQ comparison_expression
+    ;
+
+member_access_expression
+    : primary_expression
+    | member_access_expression DOT IDENTIFIER
+    ;
+
+primary_expression
+    : IDENTIFIER
+    | literal
+    | function_call
+    | match_expression
+    | if_expression
+    | '(' expression ')'
+    ;
 
 literal: NAT_LITERAL
        | STRING_LITERAL
        | BOOL_LITERAL
        ;
 
-function_call: IDENTIFIER parameter_list;
+function_call: IDENTIFIER argument_list?;
 
-match_expression: 'match' '(' IDENTIFIER ')' 'with' match_case*;
+argument_list: '(' (expression (',' expression)*)? ')';
+
+match_expression: 'match' '(' expression (',' expression)* ')' 'with' match_case*;
 
 match_case: '|' pattern '=>' expression;
 
@@ -95,13 +124,22 @@ THEN: 'then';
 ELSE: 'else';
 MATCH: 'match';
 WITH: 'with';
-TRUE: 'true';
-FALSE: 'false';
 
 IDENTIFIER: [a-zA-Z_] [a-zA-Z0-9_]*;
 NAT_LITERAL: [0-9]+;
 STRING_LITERAL: '"' ( ~('"'|'\\') | '\\' . )* '"';
 BOOL_LITERAL: 'true' | 'false';
+
+// Comparison operators
+GT: '>';
+LT: '<';
+GTE: '>=';
+LTE: '<=';
+EQ_OP: '==';
+NEQ: '!=';
+
+// Member access
+DOT: '.';
 
 ARROW: '->';
 ASTERISK: '*';
@@ -118,4 +156,3 @@ WS: [ \t\r\n]+ -> skip;
 
 SINGLE_LINE_COMMENT: '--' .*? '\n' -> skip;
 MULTI_LINE_COMMENT: '{-' .*? '-}' -> skip;
-
