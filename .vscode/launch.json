@@ -5,8 +5,8 @@
             "type": "java",
             "name": "functions",
             "request": "launch",
-            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
             "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
             "args": ["${workspaceFolder}\\script\\functions.jus"],
             "preLaunchTask": "mvn-package"
         },
@@ -14,8 +14,8 @@
             "type": "java",
             "name": "state",
             "request": "launch",
-            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
             "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
             "args": ["${workspaceFolder}\\script\\state.jus"],
             "preLaunchTask": "mvn-package"
         },
@@ -23,8 +23,8 @@
             "type": "java",
             "name": "structs",
             "request": "launch",
-            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
             "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
             "args": ["${workspaceFolder}\\script\\structs.jus"],
             "preLaunchTask": "mvn-package"
         },
@@ -32,9 +32,27 @@
             "type": "java",
             "name": "types",
             "request": "launch",
-            "classpath": ["${workspaceFolder}\\target\\jus-interpreter-1.0-SNAPSHOT-jar-with-dependencies.jar"],
             "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
             "args": ["${workspaceFolder}\\script\\types.jus"],
+            "preLaunchTask": "mvn-package"
+        },
+        {
+            "type": "java",
+            "name": "timeLockVault",
+            "request": "launch",
+            "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
+            "args": ["${workspaceFolder}\\cases\\timeLockVault.jus"],
+            "preLaunchTask": "mvn-package"
+        },
+        {
+            "type": "java",
+            "name": "escrow",
+            "request": "launch",
+            "mainClass": "org.jus.interpreter.Main",
+            "projectName": "jus-interpreter",
+            "args": ["${workspaceFolder}\\cases\\escrow.jus"],
             "preLaunchTask": "mvn-package"
         }
     ]
