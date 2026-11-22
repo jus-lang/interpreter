@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Interpretador JUS
 
 Este repositório contém o protótipo de um interpretador para a linguagem de programação funcional JUS, projetada para o desenvolvimento de contratos inteligentes seguros e verificáveis na plataforma Tezos.
@@ -57,3 +59,6 @@ O ponto de entrada atual (`Main.java`) apenas analisa o arquivo de entrada e imp
 3. **Avaliar as Expressões**: Implementar a lógica para interpretar as diferentes construções da linguagem JUS.
 4. **Gerenciar o Estado**: Implementar a máquina de estados finitos que é central para o design da linguagem JUS.
 
+## Licença
+
+Este projeto está licenciado sob a licença Apache 2.0 - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
