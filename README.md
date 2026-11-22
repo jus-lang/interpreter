@@ -68,4 +68,4 @@ Este projeto está licenciado sob a licença Apache 2.0 - veja o arquivo [LICENS
 **Repositório arquivado.** Este é o protótipo em Java da sintaxe antiga do Jus
 (2025), mantido apenas como referência histórica. A linguagem foi redefinida
 como JusCore e é implementada em
-[jus-lang/juscore](https://codeberg.org/jus-lang/juscore).
+[jus-lang/juscore](https://github.com/jus-lang/juscore).
